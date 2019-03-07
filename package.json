@@ -1,0 +1,35 @@
+{
+  "name": "show-the-rcmp-tech",
+  "version": "1.0.0",
+  "description": "This is a presentation for CDS show the thing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react": "babel-node react-xss.js",
+    "rest": "node rest.js",
+    "graphql": "node graphql.js",
+    "xss": "node xss.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sleepycat/show-the-thing-tech-choices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sleepycat/show-the-thing-tech-choices/issues"
+  },
+  "homepage": "https://github.com/sleepycat/show-the-thing-tech-choices#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-react": "^7.0.0"
+  }
+}

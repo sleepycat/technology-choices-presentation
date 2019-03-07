@@ -1,3 +1,3 @@
-# Show the thing: tech choices
+# Tech choices
 
-This is a presentation for CDS show the thing.
+This is a presentation for the report a cybercrime team.
