@@ -10,26 +10,35 @@
     url('../fonts/hkgrotesk-regular-webfont.woff') format('woff');
 }
 
-.mainBars rect{
+.codebg {
+	background-position-y: 0em;
+}
+
+.codebg h3 {
+	color: #FFF;
+	border-left: none;
+}
+
+.mainBars rect {
   shape-rendering: auto;
   fill-opacity: 0;
   stroke-width: 0.5px;
   stroke: rgb(0, 0, 0);
   stroke-opacity: 0;
 }
-.subBars{
-	shape-rendering:crispEdges;
+.subBars {
+  shape-rendering: crispEdges;
 }
 
 svg {
-	margin-left: auto;
-	margin-right: auto;
-		display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-.edges{
-	stroke:none;
-	fill-opacity:0.5;
+.edges {
+  stroke: none;
+  fill-opacity: 0.5;
 }
 
 .title-slide {
@@ -61,7 +70,6 @@ svg {
   margin-right: 40px;
 }
 
-
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -91,7 +99,7 @@ blockquote p {
   margin-right: auto;
   line-height: 2.5em;
   padding: 0.5em 10px;
-  quotes: "🙶" "🙷";
+  quotes: '🙶' '🙷';
 }
 
 blockquote p:before {
@@ -104,11 +112,11 @@ blockquote p:before {
 }
 
 blockquote cite {
-  display: block
+  display: block;
 }
 
 blockquote cite:before {
-  content: "--- "
+  content: '--- ';
 }
 
 .footnote {
@@ -124,7 +132,6 @@ blockquote cite:before {
   padding-top: 0px;
   margin-top: 0px;
 }
-
 
 .github {
   position: absolute;
@@ -353,7 +360,6 @@ b {
   box-shadow: none;
 }
 
-
 .remark-slide-number {
   position: absolute;
   padding-right: 0.2em;
@@ -362,6 +368,7 @@ b {
 
 .remark-slide-content {
   padding: 0em;
+  background-size: cover;
   border-bottom-color: #ffcd33;
   border-bottom-width: 3em;
   border-bottom-style: solid;

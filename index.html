@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/stylesheet.css" />
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="./js/viz.v1.1.0.min.js"></script>
-    <script src="./js/bipartite.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -14,7 +13,74 @@
 class: middle, title-slide
 
 # Tech choices
-## talking about why
+## Baking risk reduction in
+
+---
+
+class: center, middle
+
+### All the buzzwords!
+
+* Agile/Iterative development
+* User/Human-centered Design
+* Devops
+* Continuous Delivery
+
+But there is a common thread that runs through them...
+---
+
+class: center, middle
+
+## User/Human-centered Design
+
+><strong>Evaluating designs with users</strong> and improving them based on their feedback <strong>provides an effective means of minimizing the risk</strong> of a system not meeting user or organizational needs <cite>ISO 9241-210:2010</cite>
+
+---
+
+class: center, middle
+
+## Agile/Iterative development
+
+><strong>Iteration should be used to progressively eliminate uncertainty</strong> during the development of interactive systems. Iteration implies that descriptions, specifications and prototypes are revised and refined when new information is obtained <strong>in order to minimize the risk</strong> of the system under development failing to meet user requirements. <cite>ISO 9241-210:2010</cite>
+
+---
+
+class: center, middle
+
+## Continuous Delivery
+
+.fourty[![gds](./images/gds_reduce_risk.png)]
+
+---
+
+class: center, middle
+
+## Devops
+
+><strong>Lowering risk of change</strong> with tools and culture<cite>John Allspaw</cite>
+
+---
+
+class: center, middle
+
+### Process tools to reduce project risk
+* User/Human-centered Design
+* Agile/Iterative development
+* Devops
+* Continuous Delivery
+
+### Technological tools to reduce risk
+* React
+* GraphQL
+* Kubernetes/Docker/Istio
+* ...
+
+---
+
+class: middle, center
+## We want risk reduction baked in
+
+.thirty[![](images/stack.svg)]
 
 ---
 
@@ -22,125 +88,195 @@ class: middle, title-slide
 
 ---
 
-class: middle, center, smaller-text
+class: middle, center
+background-image: url(images/react-values.png)
 
-## 🤔
-
-* ArangoDB (2007)
-* Docker (2013)
-* Emotion (2016)
-* Flux (2016)
-* Github (2008)
-* Google Cloud (2011)
-* GraphQL (2015)
-* Istio (2016)
-* Javascript (1995)
-* Jest (2014)
-* Kubernetes (2014)
-* Microservices (2011)
-* Progressive Web App (2015)
-* Reach Router (2018)
-* React (2013)
-* Sealed Secrets (2017)
-* npm (2011)
+# .ten[![react logo](images/react_logo.svg)]
 
 ---
 
 class: middle, center
 
-## Explaining the explanation
+## Why React?
+
+* Lets us build highly interactive _applications_ on the "Open Web Platform"
+* New model for safely generating web User Interface (UI)
+
+---
+class: middle, center, codebg
+background-image: url(images/react-vs-xss-functions.png)
+
+---
+
+class: middle, center, codebg
+background-image: url(images/react-vs-xss-functions.png)
+
+### Left: "Non-context aware input handling"
+
+---
+
+class: middle, center, codebg
+background-image: url(images/react-vs-xss-functions.png)
+
+### Right: "Context aware input handling"
+
+---
+
+class: middle, center, codebg
+background-image: url(images/react-vs-xss-jsx.png)
+
+---
+
+class: middle, center, codebg
+background-image: url(images/xss-output.png)
+
+---
+class: center, middle
+
+### We changed the tools so that they safely handle inputs by default
+
+---
+class: middle, center
+background-image: url(images/graphql-values.png)
+
+# .ten[![GraphQL logo](images/graphql_logo.svg)]
+
+---
+
+class: center, middle
+
+# GraphQL
+
+* Mobile first for API development
+* Best of breed input validation
+* Supports automation and observability
+
+---
+
+class: middle, center, codebg
+background-image: url(images/rest-vs-graphql.png)
+
+---
+
+class: middle, center, codebg
+background-image: url(images/rest-vs-graphql.png)
+
+### Left: "Run this function when someone hits this URL"
+
+---
+
+class: middle, center, codebg
+background-image: url(images/rest-vs-graphql.png)
+
+### Right: "Run this function if inputs meet our expectations"
+
+---
+
+class: middle, center, codebg
+background-image: url(images/rest-vs-graphql-output.png)
+
+---
+
+class: middle, center
+background-image: url(images/npm-values.png)
+
+# .ten[![js logo](images/npm-logo.svg)]
+
+---
+
+class: center, middle
+
+### npm package manager
+
+* main package manager for the JavaScript ecosystem
+* vulnerability scanning by default every time a dependency is installed, worldwide
+
+---
+
+class: middle, left
+
+```bash
+$ npm install graphql
++ graphql@14.1.1
+added 2 packages from 1 contributor and audited 402 packages in 3.521s
+found 0 vulnerabilities
+
+```
+---
+
+class: middle, center
+background-image: url(images/javascript-values.png)
+
+# .ten[![js logo](images/js_logo.svg)]
+
+---
+
+class: center, middle
+
+# JavaScript
+
+* One language across the stack: APIs, desktop apps, mobile apps
+* Injection protection is part of the language
+
+---
+
+class: center, middle
+
+.eighty[![](images/template-strings.png)]
+
+---
+
+class: center, middle
+
+.seventy[![](images/mike-samuel.png)]
+
+---
+
+class: middle, center, codebg
+background-image: url(images/injection-protection.png)
+
+---
+
+class: left
+
+### Tagged Template literals in the wild: node-mssql
+
+```javascript
+const sql = require('mssql')
+async () => {
+	await sql.connect('mssql://username:password@localhost/database')
+	const result = await sql.query`select * from mytable where id = ${value}`
+	console.dir(result)
+}
+```
+
+---
+
+class: left
+
+### Tagged Template literals in the wild: arangojs
+
+```javascript
+import { Database, aql } from "arangojs"
+const db = new Database()
+(async () => {
+  const now = Date.now()
+  const cursor = await db.query(aql`RETURN ${now}`)
+  const result = await cursor.next()
+  console.log(result)
+})()
+
+```
 
 ---
 
 class: middle, center
 
-## Context: Change
+## Final thoughts
 
----
-class: middle, center
-
-## Processors changed
-
----
-
-class: middle, center
-
-.ninety[![image of the famous "free lunch is over" article](images/free-lunch.png)]
-
----
-
-class: middle, center
-
-.seventy[![processors don't get faster](images/sutter.png)]
-
----
-
-class: middle, center
-
-> The Go programming language was conceived in late 2007 as an answer to some of the problems we were seeing developing software infrastructure at Google. The computing landscape today is almost unrelated to the environment in which the languages being used, mostly C++, Java, and Python, had been created. The problems introduced by <em>multicore processors</em>, networked systems, massive computation clusters, and the web programming model were being worked around rather than addressed head-on. <cite>Rob Pike -- one of the creators of Go</cite>
-
----
-
-class: middle, center
-
-## Data changed
-
----
-
-class: middle, center
-
-.seventy[![sutter](images/douglaney.png)]
-
----
-
-class: middle, center
-
-.seventy[![sutter](images/douglaney.png)]
-
----
-
-class: middle, center
-
-.sixtyfive[![3 V's of big data](images/the3vs.jpg)]
-
-https://whatis.techtarget.com/definition/3Vs
-
----
-
-class: middle, center
-
-.onehundred[![bigtable](images/bigtable-paper.png)]
-
----
-
-class: middle, center
-
-<iframe width="100%" height="100%" style="position: absolute; top:0; left:0; border: none" src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=19H2dD16U5riE4J864tYrsHVS-iFYH5IibNXpISvXSX8&font=Default&lang=en&height=100%#event-integrated-data-store-ids"></iframe>
----
-
-class: middle, center
-
-## Next?
-
----
-
-class: middle, center
-
-# ☁️
-
----
-
-class: middle, center
-
-## Our choices
-
-* take account of that context
-* are relative to our values
-
----
-
-<div id="graph"></div>
-
+* No silver bullets: If this wasn't hard it would be fixed already.
+* There are new tools that have learned from the past. Find them! Use them!
+* When risk reduction is built into both tools & process, safety and speed are not in opposition.
 
     </textarea>
     <script src="js/remark.min.js"></script>
