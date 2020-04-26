@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "react": "babel-node react-xss.js",
     "rest": "node rest.js",
-    "graphql": "node graphql.js",
+    "graphql:int": "node graphql.js",
+    "graphql:enum": "node graphql2.js",
     "xss": "node xss.js"
   },
   "repository": {
@@ -22,15 +23,15 @@
   "homepage": "https://github.com/sleepycat/show-the-thing-tech-choices#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-graphql": "^0.7.1",
-    "graphql": "^14.5.8",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/node": "^7.8.3",
-    "@babel/preset-react": "^7.8.3"
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-react": "^7.9.4"
   }
 }
