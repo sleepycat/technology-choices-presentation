@@ -4,13 +4,10 @@ This is a presentation for the report a cybercrime team.
 
 ## Code examples
 
-First ensure the dependencies are installed and [jq](https://stedolan.github.io/jq/download/) and	[prettier](https://prettier.io/) installed.
+First ensure that [Node.js](https://nodejs.org/en/) is installed on your system and the dependencies  for the demos by running the command `npm install` in the directory where all the presentation files are. My explanatory code also makes use of [curl](https://curl.haxx.se/), [jq](https://stedolan.github.io/jq/download/) and [prettier](https://prettier.io/).
 
-```
-npm install
-```
 	
-### XSS
+### Cross Site Scripting (aka XSS)
 
 ```sh
 npm run xss
@@ -56,7 +53,7 @@ The output should be the following, properly escaped string:
 ```
 ##### Why it works
 
-React builds UI out of a tree of nested functions. Where it appears that we are concatenating user supplied data with strings of html the output of the traspilation process shows [the truth](https://babeljs.io/en/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBASgUwIbFgXhgJwQRwK4CW2AFAOTYpSkCUAUKJLAN5YJgAmCmAKiAMpRMBMAHMYAXxgZs-IgjIVUAWnYgAtgHoIXAG5ca9cNBgIAHgAdsECFNaySpM5YTWDDY0nPnbTqxGJ0tJ7mAHQiCFBkGqQANDDEMnguUHFW5kYI1FIAfDBMtDAw7swwYEhqCBK2ickh-FwAnrQFrFB4mGCsEOmQCCFQDebypAAWUGoANjQh2hzELYXYHFy8AkKi84VbMAA8Y5PZC9u7AEYg7A3ZABIIExMgeWUV4jsaZxeHx7sa-xPZMUdqADCnRxIFgiEJgRoGxiABmAAMSOoQA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.8.3&externalPlugins=).We are actually handing user input into a function that knows what proper escaping means in the context the function represents.
+React builds a UI out of a tree of nested functions. It uses a build step to allow the developer writes `<body>Hello {name}</body>`, but the [transpiled output](https://babeljs.io/en/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBASgUwIbFgXhgJwQRwK4CW2AFAOTYpSkCUAUKJLAN5YJgAmCmAKiAMpRMBMAHMYAXxgZs-IgjIVUAWnYgAtgHoIXAG5ca9cNBgIAHgAdsECFNaySpM5YTWDDY0nPnbTqxGJ0tJ7mAHQiCFBkGqQANDDEMnguUHFW5kYI1FIAfDBMtDAw7swwYEhqCBK2ickh-FwAnrQFrFB4mGCsEOmQCCFQDebypAAWUGoANjQh2hzELYXYHFy8AkKi84VbMAA8Y5PZC9u7AEYg7A3ZABIIExMgeWUV4jsaZxeHx7sa-xPZMUdqADCnRxIFgiEJgRoGxiABmAAMSOoQA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.8.3&externalPlugins=) shows that this is actually `React.createElement("body", null, "Hello ", name)`. This function knows what proper escaping means for the element it represents, and is able to treat user input accordingly.
 As Lee Byron [puts it](https://www.youtube.com/watch?v=NcAYsC_TKCA&feature=youtu.be&t=643), "what we are doing here is building a tree of UI component instances rather than a stream of concatentated strings." When every instance is able to handle inputs correctly, "security is solved by default".
 
 
