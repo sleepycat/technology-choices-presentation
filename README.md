@@ -84,7 +84,7 @@ This model starts on the wrong foot, with the function receiving data which may,
 As with XSS above, this is a forwarding flaw. The attacker is able to make the database perform a wide variety of surprising computations, none of which the programmers intended.
 
 
-### GraphQL: getting specific with the integer type
+### GraphQL: allowing only certain user input in strict types
 
 ```sh
 npm run graphql:int
