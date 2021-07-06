@@ -32,7 +32,7 @@ The output should be the following:
 
 This is basic string concatenation, the result of which is sent to the browser to be evaluated, something in the Langsec world is referred to as a [forwarding flaw](http://www.cs.ru.nl/~erikpoll/publications/2018_langsec.pdf), but commonly referred to as cross site scripting. 
 
-### React XSS
+### React XSS protection
 
 ```sh
 npm run react
